@@ -2,7 +2,7 @@ const time = document.querySelector(`.watch .time`)
 const stopBtn = document.getElementById(`stop-btn`)
 const startBtn = document.getElementById(`start-btn`)
 const resetBtn = document.getElementById(`reset-btn`)
-const restartBtn = document.querySelector(`.restart`)
+// const restartBtn = document.querySelector(`.restart`)
 
 
 let seconds = 0;
@@ -25,14 +25,17 @@ const timer = () => {
 
 
 const start = () => {
-    if (interval) return
+    if (interval) 
+    return
     interval = setInterval(timer, 1000)
+    time.classList.add(`pulse`)
 }
 
 
 const stop = () => {
     clearInterval(interval)
     interval = null
+    time.classList.remove(`pulse`)
 }
 
 const reset = () => {
@@ -54,7 +57,7 @@ resetBtn.addEventListener(`click`, () => reset())
 window.addEventListener(`contextmenu`, (evt) => {
     evt.preventDefault()
 })
-resetBtn.addEventListener(`contextmenu`, (evt) => {
+resetBtn.addEventListener(`dblclick`, () => {
     restart()
 })
 

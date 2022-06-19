@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600;700;800;900&display=swap');
 
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'recursive';
+    font-family: 'Recursive';
 }
 
 html, body {
@@ -14,9 +14,11 @@ html, body {
 
 body {
     background-color:  #45484b;
+    position: relative;
 }
 
 .watch {
+    position: relative;
     margin: 10rem auto;
     color: aliceblue;
     background-color: darkslategrey;
@@ -36,10 +38,40 @@ body {
     color: dodgerblue;
     font-size: 9vw;
     font-weight: 300;
+    font-family: inherit;
     transition: all 0.5s ease;
+    z-index: 7;
+    position: absolute;
+    top: 2rem;
 }
 
+.time.pulse {
+    animation:vibe 1s infinite;
+}
+
+@keyframes vibe {
+    0% {
+        font-size: 9vw;
+        font-weight: 300;
+    }
+
+    50% {
+        font-size: 9.5vw;
+        font-weight: 500;
+    }
+
+    100% {
+        font-size: 9vw;
+        font-weight: 300;
+    }
+}
+
+
+
 .controls {
+    position: relative;
+    position: absolute;
+    bottom: 4rem;
     background-color: #45484b;
     max-width: fit-content;
     max-height: fit-content;
@@ -89,11 +121,11 @@ button:active {
     text-align: center;
     padding: 0.8rem 1.2rem;
     border-radius: 0.5rem;
-    position: relative;
+    /* position: relative; */
     position: absolute;
-    right: 180px;
-    bottom: -15px;
-    transition: 0,5s;
+    right: 10px;
+    bottom: -50px;
+    transition: 0.8s;
     display: none;
 }
 
@@ -121,11 +153,49 @@ button:active {
 }
 
 @media screen and (max-width:1024px) {
+
+    .time {
+        position: absolute;
+        top: 8rem;
+        font-size: 15vw;
+    }
+
+    @keyframes vibe {
+        0% {
+            font-size: 15vw;
+            font-weight: 300;
+        }
+    
+        50% {
+            font-size: 15.5vw;
+            font-weight: 500;
+        }
+    
+        100% {
+            font-size: 15vw;
+            font-weight: 300;
+        }
+    }
+    .watch {
+        height: 30rem;
+        width: 100%;
+        max-width: 80vw;
+    }
+
     .restart {
         font-size: 1rem;
         font-weight: 600;
         position: absolute;
-        right: 80px;
+        right: 60px;
         bottom: -40px;
+    }
+
+    .controls {
+        position: absolute;
+        bottom: 7rem;
+    }
+
+    .restart::before {
+        display: none;
     }
 }
